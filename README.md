@@ -1,40 +1,52 @@
-# 📁 Mini FTP en Java (Cliente-Servidor)
-
-Proyecto de práctica para entender cómo funciona la comunicación cliente-servidor con sockets en Java. El cliente puede:
-
-- Enviar archivos al servidor  
-- Descargar archivos desde el servidor  
-- Renombrar archivos remotos  
+# FTP en Java
 
 ---
 
-## 🔧 Tecnologías usadas
+## Índice
+1. [Descripción](#descripción)  
+2. [Tecnologías](#tecnologías)  
+3. [Requisitos](#requisitos) 
+4. [Uso](#uso)   
 
-- Java  
+---
+
+## Descripción
+Proyecto de cliente/servidor FTP en Java cuya interfaz por consola permite enviar, recibir y renombrar archivos en un servidor remoto. Aprendí a gestionar sockets TCP/IP, a trabajar con I/O streams y a levantar hilos para atender múltiples clientes simultáneamente.
+
+---
+
+## Tecnologías
+- Java 
 - Sockets TCP/IP  
-- Streams de entrada/salida  
-- Threads para múltiples clientes  
+- I/O Streams
+- Threads para concurrencia  
 
 ---
 
-## ▶️ Cómo se usa
-
-    # Compilar los dos archivos
-    javac FTPServer.java
-    javac FTPClient.java
-
-    # Ejecutar el servidor
-    java FTPServer
-
-    # Ejecutar el cliente (en otra terminal)
-    java FTPClient
+## Requisitos
+- JDK 8 o superior  
+- Terminal con acceso al host donde se ejecuta el servidor  
+- Carpeta local con permisos de lectura/escritura para el directorio base del servidor  
 
 ---
 
-## 🧑‍💻 Sobre el proyecto
+## Uso
+    git clone https://github.com/eaomarb/FTP.git
+    cd FTP-main
+    
+    javac FTPServer/FTPServer.java
+    javac FTPClient/FTPClient.java
 
-Es un proyecto sencillo que me ayudó a practicar:
+    java -cp FTPServer FTPServer <puerto> <directorio-base>
+    # ej.: java -cp FTPServer FTPServer 5500 /home/usuario/ftp
 
-- Programación de red en Java  
-- Manejo de archivos con streams  
-- Uso de hilos (threads) para atender a varios clientes de forma concurrente  
+    java -cp FTPClient FTPClient <host> <puerto>
+    # ej.: java -cp FTPClient FTPClient localhost 5500
+
+**Comandos disponibles en la consola del cliente:**
+- `PUT <archivo_local>`: sube un archivo al servidor  
+- `GET <archivo_remoto>`: descarga un archivo del servidor  
+- `RENAME <viejo> <nuevo>`: renombra un archivo en el servidor  
+- `QUIT`: cierra la conexión  
+
+---
