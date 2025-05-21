@@ -32,7 +32,7 @@ Proyecto de cliente/servidor FTP en Java cuya interfaz por consola permite envia
 
 ## Uso
     git clone https://github.com/eaomarb/FTP.git
-    cd FTP-main
+    cd FTP
     
     javac FTPServer/FTPServer.java
     javac FTPClient/FTPClient.java
